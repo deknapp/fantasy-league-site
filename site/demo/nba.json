@@ -1,0 +1,1866 @@
+{
+ "id": 33,
+ "seasonId": 2027,
+ "scoringPeriodId": 1,
+ "settings": {
+  "name": "Demo Basketball League",
+  "scoringSettings": {
+   "scoringType": "H2H_POINTS"
+  }
+ },
+ "members": [
+  {
+   "id": "{DEMO-MANAGER-01}",
+   "displayName": "manager_a",
+   "firstName": "Manager",
+   "lastName": "A"
+  },
+  {
+   "id": "{DEMO-MANAGER-02}",
+   "displayName": "manager_b",
+   "firstName": "Manager",
+   "lastName": "B"
+  },
+  {
+   "id": "{DEMO-MANAGER-03}",
+   "displayName": "manager_c",
+   "firstName": "Manager",
+   "lastName": "C"
+  },
+  {
+   "id": "{DEMO-MANAGER-04}",
+   "displayName": "manager_d",
+   "firstName": "Manager",
+   "lastName": "D"
+  },
+  {
+   "id": "{DEMO-MANAGER-05}",
+   "displayName": "manager_e",
+   "firstName": "Manager",
+   "lastName": "E"
+  },
+  {
+   "id": "{DEMO-MANAGER-06}",
+   "displayName": "manager_f",
+   "firstName": "Manager",
+   "lastName": "F"
+  },
+  {
+   "id": "{DEMO-MANAGER-07}",
+   "displayName": "manager_g",
+   "firstName": "Manager",
+   "lastName": "G"
+  },
+  {
+   "id": "{DEMO-MANAGER-08}",
+   "displayName": "manager_h",
+   "firstName": "Manager",
+   "lastName": "H"
+  },
+  {
+   "id": "{DEMO-MANAGER-09}",
+   "displayName": "manager_i",
+   "firstName": "Manager",
+   "lastName": "I"
+  },
+  {
+   "id": "{DEMO-MANAGER-10-ALT}",
+   "displayName": "manager_j_alt",
+   "firstName": "Manager",
+   "lastName": "J (second account)"
+  }
+ ],
+ "teams": [
+  {
+   "id": 1,
+   "abbrev": "AO",
+   "name": "Alley Oops",
+   "owners": [
+    "{DEMO-MANAGER-01}"
+   ],
+   "primaryOwner": "{DEMO-MANAGER-01}",
+   "playoffSeed": 1,
+   "points": 0,
+   "record": {
+    "overall": {
+     "wins": 0,
+     "losses": 0,
+     "ties": 0,
+     "percentage": 0,
+     "pointsFor": 0,
+     "pointsAgainst": 0
+    }
+   },
+   "roster": {
+    "entries": [
+     {
+      "playerId": 33001,
+      "lineupSlotId": 0,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33001,
+        "fullName": "Demo Player 33001",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33002,
+      "lineupSlotId": 1,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33002,
+        "fullName": "Demo Player 33002",
+        "injuryStatus": "DAY_TO_DAY"
+       }
+      }
+     },
+     {
+      "playerId": 33003,
+      "lineupSlotId": 2,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33003,
+        "fullName": "Demo Player 33003",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33004,
+      "lineupSlotId": 3,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33004,
+        "fullName": "Demo Player 33004",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33005,
+      "lineupSlotId": 4,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33005,
+        "fullName": "Demo Player 33005",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33006,
+      "lineupSlotId": 5,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33006,
+        "fullName": "Demo Player 33006",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33007,
+      "lineupSlotId": 6,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33007,
+        "fullName": "Demo Player 33007",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33008,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33008,
+        "fullName": "Demo Player 33008",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33009,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33009,
+        "fullName": "Demo Player 33009",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33010,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33010,
+        "fullName": "Demo Player 33010",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33011,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33011,
+        "fullName": "Demo Player 33011",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33012,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33012,
+        "fullName": "Demo Player 33012",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33013,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33013,
+        "fullName": "Demo Player 33013",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33014,
+      "lineupSlotId": 13,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33014,
+        "fullName": "Demo Player 33014",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": 2,
+   "abbrev": "PAR",
+   "name": "Pick and Rollers",
+   "owners": [
+    "{DEMO-MANAGER-02}"
+   ],
+   "primaryOwner": "{DEMO-MANAGER-02}",
+   "playoffSeed": 2,
+   "points": 0,
+   "record": {
+    "overall": {
+     "wins": 0,
+     "losses": 0,
+     "ties": 0,
+     "percentage": 0,
+     "pointsFor": 0,
+     "pointsAgainst": 0
+    }
+   },
+   "roster": {
+    "entries": [
+     {
+      "playerId": 33015,
+      "lineupSlotId": 0,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33015,
+        "fullName": "Demo Player 33015",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33016,
+      "lineupSlotId": 1,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33016,
+        "fullName": "Demo Player 33016",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33017,
+      "lineupSlotId": 2,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33017,
+        "fullName": "Demo Player 33017",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33018,
+      "lineupSlotId": 3,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33018,
+        "fullName": "Demo Player 33018",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33019,
+      "lineupSlotId": 4,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33019,
+        "fullName": "Demo Player 33019",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33020,
+      "lineupSlotId": 5,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33020,
+        "fullName": "Demo Player 33020",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33021,
+      "lineupSlotId": 6,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33021,
+        "fullName": "Demo Player 33021",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33022,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33022,
+        "fullName": "Demo Player 33022",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33023,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33023,
+        "fullName": "Demo Player 33023",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33024,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33024,
+        "fullName": "Demo Player 33024",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33025,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33025,
+        "fullName": "Demo Player 33025",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33026,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33026,
+        "fullName": "Demo Player 33026",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33027,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33027,
+        "fullName": "Demo Player 33027",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33028,
+      "lineupSlotId": 13,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33028,
+        "fullName": "Demo Player 33028",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": 3,
+   "abbrev": "BB",
+   "name": "Buzzer Beaters",
+   "owners": [
+    "{DEMO-MANAGER-03}"
+   ],
+   "primaryOwner": "{DEMO-MANAGER-03}",
+   "playoffSeed": 3,
+   "points": 0,
+   "record": {
+    "overall": {
+     "wins": 0,
+     "losses": 0,
+     "ties": 0,
+     "percentage": 0,
+     "pointsFor": 0,
+     "pointsAgainst": 0
+    }
+   },
+   "roster": {
+    "entries": [
+     {
+      "playerId": 33029,
+      "lineupSlotId": 0,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33029,
+        "fullName": "Demo Player 33029",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33030,
+      "lineupSlotId": 1,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33030,
+        "fullName": "Demo Player 33030",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33031,
+      "lineupSlotId": 2,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33031,
+        "fullName": "Demo Player 33031",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33032,
+      "lineupSlotId": 3,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33032,
+        "fullName": "Demo Player 33032",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33033,
+      "lineupSlotId": 4,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33033,
+        "fullName": "Demo Player 33033",
+        "injuryStatus": "DAY_TO_DAY"
+       }
+      }
+     },
+     {
+      "playerId": 33034,
+      "lineupSlotId": 5,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33034,
+        "fullName": "Demo Player 33034",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33035,
+      "lineupSlotId": 6,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33035,
+        "fullName": "Demo Player 33035",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33036,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33036,
+        "fullName": "Demo Player 33036",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33037,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33037,
+        "fullName": "Demo Player 33037",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33038,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33038,
+        "fullName": "Demo Player 33038",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33039,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33039,
+        "fullName": "Demo Player 33039",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33040,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33040,
+        "fullName": "Demo Player 33040",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33041,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33041,
+        "fullName": "Demo Player 33041",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33042,
+      "lineupSlotId": 13,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33042,
+        "fullName": "Demo Player 33042",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": 4,
+   "abbrev": "SM",
+   "name": "Sixth Men",
+   "owners": [
+    "{DEMO-MANAGER-04}"
+   ],
+   "primaryOwner": "{DEMO-MANAGER-04}",
+   "playoffSeed": 4,
+   "points": 0,
+   "record": {
+    "overall": {
+     "wins": 0,
+     "losses": 0,
+     "ties": 0,
+     "percentage": 0,
+     "pointsFor": 0,
+     "pointsAgainst": 0
+    }
+   },
+   "roster": {
+    "entries": [
+     {
+      "playerId": 33043,
+      "lineupSlotId": 0,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33043,
+        "fullName": "Demo Player 33043",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33044,
+      "lineupSlotId": 1,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33044,
+        "fullName": "Demo Player 33044",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33045,
+      "lineupSlotId": 2,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33045,
+        "fullName": "Demo Player 33045",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33046,
+      "lineupSlotId": 3,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33046,
+        "fullName": "Demo Player 33046",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33047,
+      "lineupSlotId": 4,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33047,
+        "fullName": "Demo Player 33047",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33048,
+      "lineupSlotId": 5,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33048,
+        "fullName": "Demo Player 33048",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33049,
+      "lineupSlotId": 6,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33049,
+        "fullName": "Demo Player 33049",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33050,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33050,
+        "fullName": "Demo Player 33050",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33051,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33051,
+        "fullName": "Demo Player 33051",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33052,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33052,
+        "fullName": "Demo Player 33052",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33053,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33053,
+        "fullName": "Demo Player 33053",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33054,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33054,
+        "fullName": "Demo Player 33054",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33055,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33055,
+        "fullName": "Demo Player 33055",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33056,
+      "lineupSlotId": 13,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33056,
+        "fullName": "Demo Player 33056",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": 5,
+   "abbrev": "GC",
+   "name": "Glass Cleaners",
+   "owners": [
+    "{DEMO-MANAGER-05}"
+   ],
+   "primaryOwner": "{DEMO-MANAGER-05}",
+   "playoffSeed": 5,
+   "points": 0,
+   "record": {
+    "overall": {
+     "wins": 0,
+     "losses": 0,
+     "ties": 0,
+     "percentage": 0,
+     "pointsFor": 0,
+     "pointsAgainst": 0
+    }
+   },
+   "roster": {
+    "entries": [
+     {
+      "playerId": 33057,
+      "lineupSlotId": 0,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33057,
+        "fullName": "Demo Player 33057",
+        "injuryStatus": "DAY_TO_DAY"
+       }
+      }
+     },
+     {
+      "playerId": 33058,
+      "lineupSlotId": 1,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33058,
+        "fullName": "Demo Player 33058",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33059,
+      "lineupSlotId": 2,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33059,
+        "fullName": "Demo Player 33059",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33060,
+      "lineupSlotId": 3,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33060,
+        "fullName": "Demo Player 33060",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33061,
+      "lineupSlotId": 4,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33061,
+        "fullName": "Demo Player 33061",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33062,
+      "lineupSlotId": 5,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33062,
+        "fullName": "Demo Player 33062",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33063,
+      "lineupSlotId": 6,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33063,
+        "fullName": "Demo Player 33063",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33064,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33064,
+        "fullName": "Demo Player 33064",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33065,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33065,
+        "fullName": "Demo Player 33065",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33066,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33066,
+        "fullName": "Demo Player 33066",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33067,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33067,
+        "fullName": "Demo Player 33067",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33068,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33068,
+        "fullName": "Demo Player 33068",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33069,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33069,
+        "fullName": "Demo Player 33069",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33070,
+      "lineupSlotId": 13,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33070,
+        "fullName": "Demo Player 33070",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": 6,
+   "abbrev": "BM",
+   "name": "Bench Mob",
+   "owners": [
+    "{DEMO-MANAGER-06}"
+   ],
+   "primaryOwner": "{DEMO-MANAGER-06}",
+   "playoffSeed": 6,
+   "points": 0,
+   "record": {
+    "overall": {
+     "wins": 0,
+     "losses": 0,
+     "ties": 0,
+     "percentage": 0,
+     "pointsFor": 0,
+     "pointsAgainst": 0
+    }
+   },
+   "roster": {
+    "entries": [
+     {
+      "playerId": 33071,
+      "lineupSlotId": 0,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33071,
+        "fullName": "Demo Player 33071",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33072,
+      "lineupSlotId": 1,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33072,
+        "fullName": "Demo Player 33072",
+        "injuryStatus": "DAY_TO_DAY"
+       }
+      }
+     },
+     {
+      "playerId": 33073,
+      "lineupSlotId": 2,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33073,
+        "fullName": "Demo Player 33073",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33074,
+      "lineupSlotId": 3,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33074,
+        "fullName": "Demo Player 33074",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33075,
+      "lineupSlotId": 4,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33075,
+        "fullName": "Demo Player 33075",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33076,
+      "lineupSlotId": 5,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33076,
+        "fullName": "Demo Player 33076",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33077,
+      "lineupSlotId": 6,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33077,
+        "fullName": "Demo Player 33077",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33078,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33078,
+        "fullName": "Demo Player 33078",
+        "injuryStatus": "DAY_TO_DAY"
+       }
+      }
+     },
+     {
+      "playerId": 33079,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33079,
+        "fullName": "Demo Player 33079",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33080,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33080,
+        "fullName": "Demo Player 33080",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33081,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33081,
+        "fullName": "Demo Player 33081",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33082,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33082,
+        "fullName": "Demo Player 33082",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33083,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33083,
+        "fullName": "Demo Player 33083",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33084,
+      "lineupSlotId": 13,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33084,
+        "fullName": "Demo Player 33084",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": 7,
+   "abbrev": "FB",
+   "name": "Fast Breakers",
+   "owners": [
+    "{DEMO-MANAGER-07}"
+   ],
+   "primaryOwner": "{DEMO-MANAGER-07}",
+   "playoffSeed": 7,
+   "points": 0,
+   "record": {
+    "overall": {
+     "wins": 0,
+     "losses": 0,
+     "ties": 0,
+     "percentage": 0,
+     "pointsFor": 0,
+     "pointsAgainst": 0
+    }
+   },
+   "roster": {
+    "entries": [
+     {
+      "playerId": 33085,
+      "lineupSlotId": 0,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33085,
+        "fullName": "Demo Player 33085",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33086,
+      "lineupSlotId": 1,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33086,
+        "fullName": "Demo Player 33086",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33087,
+      "lineupSlotId": 2,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33087,
+        "fullName": "Demo Player 33087",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33088,
+      "lineupSlotId": 3,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33088,
+        "fullName": "Demo Player 33088",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33089,
+      "lineupSlotId": 4,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33089,
+        "fullName": "Demo Player 33089",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33090,
+      "lineupSlotId": 5,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33090,
+        "fullName": "Demo Player 33090",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33091,
+      "lineupSlotId": 6,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33091,
+        "fullName": "Demo Player 33091",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33092,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33092,
+        "fullName": "Demo Player 33092",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33093,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33093,
+        "fullName": "Demo Player 33093",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33094,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33094,
+        "fullName": "Demo Player 33094",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33095,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33095,
+        "fullName": "Demo Player 33095",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33096,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33096,
+        "fullName": "Demo Player 33096",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33097,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33097,
+        "fullName": "Demo Player 33097",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33098,
+      "lineupSlotId": 13,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33098,
+        "fullName": "Demo Player 33098",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": 8,
+   "abbrev": "TD",
+   "name": "Triple Doubles",
+   "owners": [
+    "{DEMO-MANAGER-08}"
+   ],
+   "primaryOwner": "{DEMO-MANAGER-08}",
+   "playoffSeed": 8,
+   "points": 0,
+   "record": {
+    "overall": {
+     "wins": 0,
+     "losses": 0,
+     "ties": 0,
+     "percentage": 0,
+     "pointsFor": 0,
+     "pointsAgainst": 0
+    }
+   },
+   "roster": {
+    "entries": [
+     {
+      "playerId": 33099,
+      "lineupSlotId": 0,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33099,
+        "fullName": "Demo Player 33099",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33100,
+      "lineupSlotId": 1,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33100,
+        "fullName": "Demo Player 33100",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33101,
+      "lineupSlotId": 2,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33101,
+        "fullName": "Demo Player 33101",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33102,
+      "lineupSlotId": 3,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33102,
+        "fullName": "Demo Player 33102",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33103,
+      "lineupSlotId": 4,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33103,
+        "fullName": "Demo Player 33103",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33104,
+      "lineupSlotId": 5,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33104,
+        "fullName": "Demo Player 33104",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33105,
+      "lineupSlotId": 6,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33105,
+        "fullName": "Demo Player 33105",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33106,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33106,
+        "fullName": "Demo Player 33106",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33107,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33107,
+        "fullName": "Demo Player 33107",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33108,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33108,
+        "fullName": "Demo Player 33108",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33109,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33109,
+        "fullName": "Demo Player 33109",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33110,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33110,
+        "fullName": "Demo Player 33110",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33111,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33111,
+        "fullName": "Demo Player 33111",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33112,
+      "lineupSlotId": 13,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33112,
+        "fullName": "Demo Player 33112",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": 9,
+   "abbrev": "RP",
+   "name": "Rim Protectors",
+   "owners": [
+    "{DEMO-MANAGER-09}"
+   ],
+   "primaryOwner": "{DEMO-MANAGER-09}",
+   "playoffSeed": 9,
+   "points": 0,
+   "record": {
+    "overall": {
+     "wins": 0,
+     "losses": 0,
+     "ties": 0,
+     "percentage": 0,
+     "pointsFor": 0,
+     "pointsAgainst": 0
+    }
+   },
+   "roster": {
+    "entries": [
+     {
+      "playerId": 33113,
+      "lineupSlotId": 0,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33113,
+        "fullName": "Demo Player 33113",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33114,
+      "lineupSlotId": 1,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33114,
+        "fullName": "Demo Player 33114",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33115,
+      "lineupSlotId": 2,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33115,
+        "fullName": "Demo Player 33115",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33116,
+      "lineupSlotId": 3,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33116,
+        "fullName": "Demo Player 33116",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33117,
+      "lineupSlotId": 4,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33117,
+        "fullName": "Demo Player 33117",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33118,
+      "lineupSlotId": 5,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33118,
+        "fullName": "Demo Player 33118",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33119,
+      "lineupSlotId": 6,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33119,
+        "fullName": "Demo Player 33119",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33120,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33120,
+        "fullName": "Demo Player 33120",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33121,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33121,
+        "fullName": "Demo Player 33121",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33122,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33122,
+        "fullName": "Demo Player 33122",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33123,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33123,
+        "fullName": "Demo Player 33123",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33124,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33124,
+        "fullName": "Demo Player 33124",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33125,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33125,
+        "fullName": "Demo Player 33125",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33126,
+      "lineupSlotId": 13,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33126,
+        "fullName": "Demo Player 33126",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": 10,
+   "abbrev": "PF",
+   "name": "Pump Fakes",
+   "owners": [
+    "{DEMO-MANAGER-10-ALT}"
+   ],
+   "primaryOwner": "{DEMO-MANAGER-10-ALT}",
+   "playoffSeed": 10,
+   "points": 0,
+   "record": {
+    "overall": {
+     "wins": 0,
+     "losses": 0,
+     "ties": 0,
+     "percentage": 0,
+     "pointsFor": 0,
+     "pointsAgainst": 0
+    }
+   },
+   "roster": {
+    "entries": [
+     {
+      "playerId": 33127,
+      "lineupSlotId": 0,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33127,
+        "fullName": "Demo Player 33127",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33128,
+      "lineupSlotId": 1,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33128,
+        "fullName": "Demo Player 33128",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33129,
+      "lineupSlotId": 2,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33129,
+        "fullName": "Demo Player 33129",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33130,
+      "lineupSlotId": 3,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33130,
+        "fullName": "Demo Player 33130",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33131,
+      "lineupSlotId": 4,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33131,
+        "fullName": "Demo Player 33131",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33132,
+      "lineupSlotId": 5,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33132,
+        "fullName": "Demo Player 33132",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33133,
+      "lineupSlotId": 6,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33133,
+        "fullName": "Demo Player 33133",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33134,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33134,
+        "fullName": "Demo Player 33134",
+        "injuryStatus": "OUT"
+       }
+      }
+     },
+     {
+      "playerId": 33135,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33135,
+        "fullName": "Demo Player 33135",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33136,
+      "lineupSlotId": 11,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33136,
+        "fullName": "Demo Player 33136",
+        "injuryStatus": "DAY_TO_DAY"
+       }
+      }
+     },
+     {
+      "playerId": 33137,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33137,
+        "fullName": "Demo Player 33137",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33138,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33138,
+        "fullName": "Demo Player 33138",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33139,
+      "lineupSlotId": 12,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33139,
+        "fullName": "Demo Player 33139",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     },
+     {
+      "playerId": 33140,
+      "lineupSlotId": 13,
+      "playerPoolEntry": {
+       "player": {
+        "id": 33140,
+        "fullName": "Demo Player 33140",
+        "injuryStatus": "ACTIVE"
+       }
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "transactions": []
+}
