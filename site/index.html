@@ -4,484 +4,98 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Franchise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" />
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+  :root {
+    --navy: #12203A; --navy-deep: #0E1A2E; --chalk: #EDEDE3; --muted: #7C8B99;
+    --green: #3FA34D; --gold: #C9A227; --amber: #E8A33D;
+    --line: rgba(255,255,255,.12); --line-soft: rgba(255,255,255,.08);
+  }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; min-height: 100%; }
-  body {
-    background: #12203A;
-    color: #EDEDE3;
-    font-family: 'Inter', sans-serif;
-  }
+  body { background: var(--navy); color: var(--chalk); font-family: 'Inter', system-ui, sans-serif; }
   button, input, select { font-family: inherit; }
   button { cursor: pointer; }
-  ::selection { background: #3FA34D; color: #12203A; }
+  code { font-size: 12px; background: rgba(255,255,255,.08); padding: 1px 5px; border-radius: 3px; }
+  ::selection { background: var(--green); color: var(--navy); }
 
   .center-screen { min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
-  .login-card { max-width: 420px; width: 100%; padding: 36px 32px; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; }
-  .kicker { color: #3FA34D; font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: .5px; margin-bottom: 6px; }
-  .title { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 600; margin: 0; }
-  .sub { color: #7C8B99; font-size: 14px; line-height: 1.5; margin-top: 10px; }
-  .row { display: flex; gap: 10px; margin-top: 20px; }
-  .input { background: #0E1A2E; border: 1px solid rgba(255,255,255,.18); color: #EDEDE3; border-radius: 4px; padding: 10px 12px; font-size: 14px; flex: 1; }
-  .btn-primary { background: #3FA34D; border: none; color: #0E1A2E; border-radius: 4px; padding: 10px 18px; font-weight: 600; font-size: 14px; white-space: nowrap; }
-  .btn-icon { background: transparent; border: 1px solid rgba(255,255,255,.18); color: #EDEDE3; border-radius: 4px; padding: 8px; }
-  .chip { background: transparent; border: 1px solid rgba(255,255,255,.18); color: #EDEDE3; border-radius: 20px; padding: 6px 14px; font-size: 13px; margin: 4px 4px 0 0; }
-  .chip.active { background: #EDEDE3; color: #12203A; font-weight: 600; }
-  .muted { color: #7C8B99; font-size: 13px; }
-  header.app-header { display: flex; justify-content: space-between; align-items: center; padding: 28px 32px 20px; border-bottom: 1px solid rgba(255,255,255,.12); }
-  .header-kicker { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 600; }
+  .muted { color: var(--muted); }
+  .small { font-size: 12px; }
+  .strong { font-weight: 600; }
+
+  header.app-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 28px 32px 20px; border-bottom: 1px solid var(--line); }
+  .header-kicker { font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 600; }
+  header .muted { font-size: 13px; }
+  .demo-tag { color: var(--amber); }
+
+  nav.tabs { display: flex; gap: 4px; padding: 12px 32px 0; border-bottom: 1px solid var(--line); overflow-x: auto; }
+  .tab { background: transparent; border: none; color: var(--muted); padding: 10px 16px; font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; white-space: nowrap; }
+  .tab.active { color: var(--chalk); border-bottom-color: var(--green); }
   .league-pills { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 32px 0; }
-  .pill { background: transparent; border: 1px solid rgba(255,255,255,.18); color: #EDEDE3; border-radius: 20px; padding: 6px 14px; font-size: 13px; }
-  .pill.active { background: #3FA34D; border-color: #3FA34D; color: #12203A; font-weight: 600; }
-  nav.tabs { display: flex; gap: 4px; padding: 20px 32px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
-  .tab { display: flex; align-items: center; gap: 8px; background: transparent; border: none; color: #7C8B99; padding: 10px 16px; font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; }
-  .tab.active { color: #EDEDE3; border-bottom: 2px solid #3FA34D; }
-  main.app-main { padding: 28px 32px; }
-  .status-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
-  .error-banner { color: #E8A33D; font-size: 13px; width: 100%; }
-  .info-banner { background: rgba(63,163,77,.1); border: 1px solid rgba(63,163,77,.35); border-radius: 4px; padding: 12px 14px; font-size: 13px; color: #c9d6cd; line-height: 1.5; }
-  .table-wrap { border: 1px solid rgba(255,255,255,.12); border-radius: 4px; overflow: hidden; }
-  .table-row { display: flex; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 14px; }
-  .table-head { color: #7C8B99; font-size: 12px; text-transform: uppercase; letter-spacing: .4px; }
+  .pill, .chip { background: transparent; border: 1px solid rgba(255,255,255,.18); color: var(--chalk); border-radius: 20px; padding: 6px 14px; font-size: 13px; }
+  .pill.active { background: var(--green); border-color: var(--green); color: var(--navy); font-weight: 600; }
+  .chip.active { background: var(--chalk); color: var(--navy); font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-left: 8px; vertical-align: middle; }
+  .dot.loading { background: var(--muted); }
+  .dot.error { background: var(--amber); }
+
+  main.app-main { padding: 24px 32px 48px; }
+  .note { color: var(--muted); font-size: 13px; line-height: 1.5; margin: 0 0 16px; max-width: 760px; }
+
+  .table-wrap { border: 1px solid var(--line); border-radius: 4px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line-soft); white-space: nowrap; vertical-align: middle; }
+  tbody tr:last-child td { border-bottom: none; }
+  th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .4px; font-weight: 500; }
+  th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.rank { color: var(--muted); width: 1%; }
+  td.gold { color: var(--gold); font-weight: 700; }
+  .place { display: block; font-size: 11px; color: var(--muted); }
+  tr.me td { background: rgba(63,163,77,.14); }
+  tr.bench td { opacity: .7; }
+  .link-btn { background: none; border: none; color: inherit; padding: 0; font: inherit; font-weight: 600; text-align: left; }
+  .link-btn:hover { text-decoration: underline; }
+
   .empty-state { text-align: center; padding: 48px 20px; border: 1px dashed rgba(255,255,255,.15); border-radius: 4px; }
   .empty-title { font-family: 'Oswald', sans-serif; font-size: 18px; margin-bottom: 8px; }
-  section.settings-section { margin-bottom: 32px; max-width: 640px; }
+  .message { border-radius: 4px; padding: 10px 14px; font-size: 13px; margin-bottom: 16px; line-height: 1.5; }
+  .message.error { color: var(--amber); border: 1px solid rgba(232,163,61,.4); }
+  .message.ok, .message.info { color: #c9d6cd; border: 1px solid rgba(63,163,77,.35); }
+  .info-banner { background: rgba(63,163,77,.1); border: 1px solid rgba(63,163,77,.35); border-radius: 4px; padding: 12px 14px; font-size: 13px; color: #c9d6cd; line-height: 1.5; margin-bottom: 24px; }
+
+  .settings { max-width: 680px; }
+  .settings-section { margin-bottom: 32px; }
   .section-title { font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 12px; }
-  .league-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
-  .add-league-grid { display: grid; grid-template-columns: 1fr 1.4fr 1fr 1.4fr auto; gap: 8px; }
-  .help-text { color: #7C8B99; font-size: 12px; margin-top: 10px; line-height: 1.5; }
-  .member-chip { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.06); border-radius: 20px; padding: 6px 8px 6px 14px; font-size: 13px; margin: 0 8px 8px 0; }
-  .chip-remove { background: transparent; border: none; color: #7C8B99; font-size: 16px; line-height: 1; }
-  .trade-card { border: 1px solid rgba(255,255,255,.12); border-radius: 4px; padding: 16px; margin-bottom: 12px; }
+  .row { display: flex; gap: 10px; }
+  .input { background: var(--navy-deep); border: 1px solid rgba(255,255,255,.18); color: var(--chalk); border-radius: 4px; padding: 10px 12px; font-size: 14px; flex: 1; min-width: 0; }
+  .input.compact { flex: 0 1 220px; padding: 6px 8px; font-size: 13px; }
+  .btn-primary { background: var(--green); border: none; color: var(--navy-deep); border-radius: 4px; padding: 10px 18px; font-weight: 600; font-size: 14px; white-space: nowrap; }
+  .btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,.18); color: var(--chalk); border-radius: 4px; padding: 8px 12px; font-size: 13px; white-space: nowrap; }
+  .league-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+  .add-league-grid { display: grid; grid-template-columns: 2fr 1fr auto; gap: 8px; margin-top: 16px; }
+  .help-text { color: var(--muted); font-size: 12px; margin: 10px 0; line-height: 1.5; }
+
+  .trade-card { border: 1px solid var(--line); border-radius: 4px; padding: 16px; margin-bottom: 12px; }
   .trade-header { display: flex; justify-content: space-between; align-items: center; }
-  .status-tag { font-size: 11px; text-transform: uppercase; letter-spacing: .4px; color: #7C8B99; border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 2px 10px; }
-  .status-tag.live { color: #3FA34D; border-color: rgba(63,163,77,.5); }
+  .trade-items { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; font-size: 14px; }
+  .status-tag { font-size: 11px; text-transform: uppercase; letter-spacing: .4px; color: var(--muted); border: 1px solid rgba(255,255,255,.18); border-radius: 12px; padding: 2px 10px; }
+  .status-tag.live { color: var(--green); border-color: rgba(63,163,77,.5); }
+
   @media (max-width: 640px) {
-    .add-league-grid { grid-template-columns: 1fr; }
     header.app-header, nav.tabs, main.app-main, .league-pills { padding-left: 16px; padding-right: 16px; }
+    .add-league-grid { grid-template-columns: 1fr; }
+    .league-row { flex-wrap: wrap; }
+    th, td { padding: 8px 10px; }
   }
 </style>
 </head>
 <body>
 <div id="app"></div>
-
-<script>
-// ====== CONFIGURE THIS: your deployed Worker's base URL ======
-const WORKER_URL = "https://YOUR-WORKER.YOUR-SUBDOMAIN.workers.dev";
-// ================================================================
-
-const SPORT_PATH = { nfl: "ffl", nba: "fba", mlb: "flb", nhl: "fhl" };
-const SPORT_LABEL = { nfl: "NFL", nba: "NBA", mlb: "MLB", nhl: "NHL" };
-const NFL_SLOT = { 0: "QB", 2: "RB", 4: "WR", 6: "TE", 16: "D/ST", 17: "K", 20: "BE", 21: "IR", 23: "FLEX" };
-const NBA_SLOT = { 0: "PG", 1: "SG", 2: "SF", 3: "PF", 4: "C", 5: "G", 6: "F", 11: "UTIL", 12: "BE", 13: "IR" };
-const SLOT_MAPS = { nfl: NFL_SLOT, nba: NBA_SLOT, mlb: {}, nhl: {} };
-const DEFAULT_CONFIG = { leagueName: "The Franchise", members: [], leagues: [] };
-
-function slotLabel(sport, slotId) {
-  return (SLOT_MAPS[sport] || {})[slotId] || `Slot ${slotId}`;
-}
-function teamName(t) {
-  if (t.location || t.nickname) return `${t.location || ""} ${t.nickname || ""}`.trim();
-  return t.name || t.abbrev || `Team ${t.id}`;
-}
-function buildPlayerMap(data) {
-  const map = {};
-  (data.teams || []).forEach((t) => {
-    (t.roster?.entries || []).forEach((e) => {
-      const p = e.playerPoolEntry?.player;
-      if (p) map[e.playerId] = p.fullName;
-    });
-  });
-  return map;
-}
-async function fetchLeague(sport, leagueId, year) {
-  const path = SPORT_PATH[sport];
-  const target = `https://lm-api-reads.fantasy.espn.com/apps/fantasy/v3/games/${path}/seasons/${year}/segments/0/leagues/${leagueId}?view=mStandings&view=mRoster&view=mTeam&view=mTransactions2`;
-  const res = await fetch(`${WORKER_URL}/proxy?url=${encodeURIComponent(target)}`, { headers: { Accept: "application/json" } });
-  if (!res.ok) throw new Error(`ESPN responded with ${res.status}. If this is a private league, we can't see it without your ESPN cookies.`);
-  return res.json();
-}
-async function loadConfig() {
-  try {
-    const res = await fetch(`${WORKER_URL}/config`);
-    if (!res.ok) throw new Error();
-    return await res.json();
-  } catch {
-    return { ...DEFAULT_CONFIG };
-  }
-}
-async function saveConfig(cfg) {
-  try {
-    await fetch(`${WORKER_URL}/config`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(cfg),
-    });
-  } catch (e) {
-    console.error("Failed to save config", e);
-  }
-}
-
-// ---------- App state ----------
-const state = {
-  ready: false,
-  config: { ...DEFAULT_CONFIG },
-  me: localStorage.getItem("fl-identity") || null,
-  tab: "standings",
-  activeLeagueId: null,
-  espnData: {},
-  loadingLeagueId: null,
-  errors: {},
-  selectedTeamId: {},
-  nameInput: "",
-};
-
-const root = document.getElementById("app");
-
-async function init() {
-  state.config = await loadConfig();
-  if (state.config.leagues?.length) state.activeLeagueId = state.config.leagues[0].id;
-  state.ready = true;
-  render();
-  if (state.me && state.activeLeagueId) refreshLeague(state.activeLeagueId);
-}
-
-async function refreshLeague(leagueId) {
-  const league = state.config.leagues.find((l) => l.id === leagueId);
-  if (!league) return;
-  state.loadingLeagueId = leagueId;
-  state.errors[leagueId] = null;
-  render();
-  try {
-    state.espnData[leagueId] = await fetchLeague(league.sport, league.leagueId, league.year);
-  } catch (err) {
-    state.errors[leagueId] = err.message;
-  } finally {
-    state.loadingLeagueId = null;
-    render();
-  }
-}
-
-function signIn(name) {
-  const trimmed = (name || "").trim();
-  if (!trimmed) return;
-  if (!state.config.members.includes(trimmed)) {
-    state.config.members = [...state.config.members, trimmed];
-    saveConfig(state.config);
-  }
-  state.me = trimmed;
-  localStorage.setItem("fl-identity", trimmed);
-  render();
-  if (state.activeLeagueId) refreshLeague(state.activeLeagueId);
-}
-function signOut() {
-  state.me = null;
-  localStorage.removeItem("fl-identity");
-  render();
-}
-function updateConfig(patch) {
-  state.config = { ...state.config, ...patch };
-  saveConfig(state.config);
-  if (!state.config.leagues.find((l) => l.id === state.activeLeagueId)) {
-    state.activeLeagueId = state.config.leagues[0]?.id || null;
-    if (state.activeLeagueId) refreshLeague(state.activeLeagueId);
-  }
-  render();
-}
-
-// ---------- Rendering ----------
-function render() {
-  if (!state.ready) {
-    root.innerHTML = `<div class="center-screen"><span class="muted">Loading the franchise…</span></div>`;
-    return;
-  }
-  if (!state.me) {
-    root.innerHTML = loginScreenHTML();
-    bindLoginEvents();
-    return;
-  }
-  root.innerHTML = mainScreenHTML();
-  bindMainEvents();
-}
-
-function loginScreenHTML() {
-  const chips = (state.config.members || [])
-    .map((m) => `<button class="chip" data-signin="${escapeAttr(m)}">${escapeHtml(m)}</button>`)
-    .join("");
-  return `
-    <div class="center-screen">
-      <div class="login-card">
-        <div class="kicker">${escapeHtml(state.config.leagueName)}</div>
-        <h1 class="title">Who's checking in?</h1>
-        <p class="sub">Enter your name to join. If you're new here, this will add you to the league roster.
-          This isn't secured with a password — it's an honor system for the 10 of you.</p>
-        <div class="row">
-          <input class="input" id="name-input" placeholder="Your name" autofocus value="${escapeAttr(state.nameInput)}" />
-          <button class="btn-primary" id="enter-btn">Enter</button>
-        </div>
-        ${state.config.members?.length ? `<div style="margin-top:24px;"><div class="muted">Or pick your name</div><div style="margin-top:10px;">${chips}</div></div>` : ""}
-      </div>
-    </div>
-  `;
-}
-
-function bindLoginEvents() {
-  const input = document.getElementById("name-input");
-  const enterBtn = document.getElementById("enter-btn");
-  input.addEventListener("input", (e) => { state.nameInput = e.target.value; });
-  input.addEventListener("keydown", (e) => { if (e.key === "Enter") signIn(input.value); });
-  enterBtn.addEventListener("click", () => signIn(input.value));
-  root.querySelectorAll("[data-signin]").forEach((btn) => {
-    btn.addEventListener("click", () => signIn(btn.dataset.signin));
-  });
-}
-
-function mainScreenHTML() {
-  const league = state.config.leagues.find((l) => l.id === state.activeLeagueId);
-  const pills = state.config.leagues
-    .map((l) => `<button class="pill ${l.id === state.activeLeagueId ? "active" : ""}" data-league="${escapeAttr(l.id)}">${SPORT_LABEL[l.sport]} · ${escapeHtml(l.label)}</button>`)
-    .join("");
-
-  const tabs = [
-    ["standings", "Standings"],
-    ["rosters", "Rosters"],
-    ["trades", "Trades"],
-    ["settings", "Settings"],
-  ]
-    .map(([key, label]) => `<button class="tab ${state.tab === key ? "active" : ""}" data-tab="${key}">${label}</button>`)
-    .join("");
-
-  let body = "";
-  if (state.tab === "settings") {
-    body = settingsHTML();
-  } else if (state.config.leagues.length === 0) {
-    body = emptyStateHTML("No leagues configured yet", "Head to Settings and add your ESPN league IDs to pull in live standings, rosters, and trades.");
-  } else if (league) {
-    body = statusBarHTML(league) + tabBodyHTML(league);
-  }
-
-  return `
-    <header class="app-header">
-      <div>
-        <div class="header-kicker">${escapeHtml(state.config.leagueName)}</div>
-        <div class="muted">Multi-sport league office</div>
-      </div>
-      <div style="display:flex;align-items:center;gap:14px;">
-        <span class="muted">Signed in as ${escapeHtml(state.me)}</span>
-        <button class="btn-icon" id="signout-btn">Sign out</button>
-      </div>
-    </header>
-    ${state.config.leagues.length ? `<div class="league-pills">${pills}</div>` : ""}
-    <nav class="tabs">${tabs}</nav>
-    <main class="app-main">${body}</main>
-  `;
-}
-
-function statusBarHTML(league) {
-  const loading = state.loadingLeagueId === league.id;
-  const error = state.errors[league.id];
-  return `
-    <div class="status-bar">
-      <span class="muted">${SPORT_LABEL[league.sport]} league ${escapeHtml(league.leagueId)} · ${escapeHtml(league.year)} season</span>
-      <button class="btn-icon" id="refresh-btn">${loading ? "Refreshing…" : "Refresh"}</button>
-      ${error ? `<div class="error-banner">${escapeHtml(error)}</div>` : ""}
-    </div>
-  `;
-}
-
-function tabBodyHTML(league) {
-  const data = state.espnData[league.id];
-  if (!data) return emptyStateHTML("No data yet", "Click Refresh above to pull the latest from ESPN.");
-  if (state.tab === "standings") return standingsHTML(data);
-  if (state.tab === "rosters") return rostersHTML(data, league.sport);
-  if (state.tab === "trades") return tradesHTML(data);
-  return "";
-}
-
-function standingsHTML(data) {
-  const teams = [...(data.teams || [])].sort((a, b) => {
-    const ra = a.record?.overall || {}, rb = b.record?.overall || {};
-    if ((rb.wins || 0) !== (ra.wins || 0)) return (rb.wins || 0) - (ra.wins || 0);
-    return (rb.pointsFor || 0) - (ra.pointsFor || 0);
-  });
-  if (!teams.length) return emptyStateHTML("No standings yet", "ESPN hasn't returned any teams for this league.");
-  const rows = teams.map((t, i) => {
-    const r = t.record?.overall || {};
-    return `
-      <div class="table-row">
-        <span style="flex:.5;${i === 0 ? "color:#C9A227;font-weight:700;" : ""}">${i + 1}</span>
-        <span style="flex:3;font-weight:600;">${escapeHtml(teamName(t))}</span>
-        <span style="flex:1;text-align:right;">${r.wins ?? "–"}</span>
-        <span style="flex:1;text-align:right;">${r.losses ?? "–"}</span>
-        <span style="flex:1;text-align:right;">${r.ties ?? 0}</span>
-        <span style="flex:1.5;text-align:right;">${r.pointsFor?.toFixed?.(1) ?? "–"}</span>
-        <span style="flex:1.5;text-align:right;">${r.pointsAgainst?.toFixed?.(1) ?? "–"}</span>
-      </div>`;
-  }).join("");
-  return `
-    <div class="table-wrap">
-      <div class="table-row table-head">
-        <span style="flex:.5;">#</span><span style="flex:3;">Team</span>
-        <span style="flex:1;text-align:right;">W</span><span style="flex:1;text-align:right;">L</span>
-        <span style="flex:1;text-align:right;">T</span><span style="flex:1.5;text-align:right;">PF</span>
-        <span style="flex:1.5;text-align:right;">PA</span>
-      </div>
-      ${rows}
-    </div>`;
-}
-
-function rostersHTML(data, sport) {
-  const teams = data.teams || [];
-  if (!teams.length) return emptyStateHTML("No roster data", "ESPN didn't return any teams for this league.");
-  const activeId = state.selectedTeamId[data === state.espnData[state.activeLeagueId] ? state.activeLeagueId : ""] ?? teams[0].id;
-  const chips = teams.map((t) => `<button class="chip ${t.id === activeId ? "active" : ""}" data-team="${t.id}">${escapeHtml(teamName(t))}</button>`).join("");
-  const activeTeam = teams.find((t) => t.id === activeId);
-  const entries = activeTeam?.roster?.entries || [];
-  const rows = entries.map((e) => `
-    <div class="table-row">
-      <span style="flex:1;color:#7C8B99;">${slotLabel(sport, e.lineupSlotId)}</span>
-      <span style="flex:3;font-weight:500;">${escapeHtml(e.playerPoolEntry?.player?.fullName || `Player ${e.playerId}`)}</span>
-    </div>`).join("");
-  return `
-    <div style="margin-bottom:18px;">${chips}</div>
-    <div class="table-wrap">
-      <div class="table-row table-head"><span style="flex:1;">Slot</span><span style="flex:3;">Player</span></div>
-      ${rows || `<div class="table-row"><span class="muted">No roster entries.</span></div>`}
-    </div>`;
-}
-
-function tradesHTML(data) {
-  const playerMap = buildPlayerMap(data);
-  const teamMap = {};
-  (data.teams || []).forEach((t) => { teamMap[t.id] = teamName(t); });
-  const trades = (data.transactions || [])
-    .filter((tx) => (tx.type || "").toUpperCase().includes("TRADE"))
-    .sort((a, b) => (b.proposedDate || 0) - (a.proposedDate || 0));
-  if (!trades.length) return emptyStateHTML("No trades found", "ESPN hasn't recorded any trade transactions for this league yet.");
-  return trades.map((tx) => {
-    const items = (tx.items || []).map((item) => `
-      <div style="font-size:14px;">
-        <strong>${escapeHtml(playerMap[item.playerId] || `Player ${item.playerId}`)}</strong>:
-        ${escapeHtml(teamMap[item.fromTeamId] || "Free agency")} → ${escapeHtml(teamMap[item.toTeamId] || "Free agency")}
-      </div>`).join("");
-    return `
-      <div class="trade-card">
-        <div class="trade-header">
-          <span class="muted">${tx.proposedDate ? new Date(tx.proposedDate).toLocaleDateString() : "Date unknown"}</span>
-          <span class="status-tag ${tx.status === "EXECUTED" ? "live" : ""}">${tx.status || "PENDING"}</span>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px;">${items}</div>
-      </div>`;
-  }).join("");
-}
-
-function settingsHTML() {
-  const leagueRows = state.config.leagues.map((l) => `
-    <div class="league-row">
-      <span>${SPORT_LABEL[l.sport]} · ${escapeHtml(l.label)} · ID ${escapeHtml(l.leagueId)} · ${escapeHtml(l.year)}</span>
-      <button class="btn-icon" data-remove-league="${escapeAttr(l.id)}">Remove</button>
-    </div>`).join("");
-  const memberChips = state.config.members.map((m) => `
-    <span class="member-chip">${escapeHtml(m)}${m === state.me ? " (you)" : ""}
-      <button class="chip-remove" data-remove-member="${escapeAttr(m)}">×</button>
-    </span>`).join("");
-
-  return `
-    <div style="max-width:640px;">
-      <div class="info-banner" style="margin-bottom:24px;">
-        This only works for <strong>public</strong> ESPN leagues. If a league returns an error, confirm it's set to
-        public in ESPN's league settings.
-      </div>
-
-      <section class="settings-section">
-        <div class="section-title">League office name</div>
-        <div class="row" style="margin-top:0;">
-          <input class="input" id="league-name-input" value="${escapeAttr(state.config.leagueName)}" />
-          <button class="btn-primary" id="save-league-name">Save</button>
-        </div>
-      </section>
-
-      <section class="settings-section">
-        <div class="section-title">ESPN leagues</div>
-        <div style="margin-bottom:16px;">${leagueRows || `<span class="muted">No leagues added yet.</span>`}</div>
-        <div class="add-league-grid">
-          <select class="input" id="new-sport">
-            <option value="nfl">NFL</option><option value="nba">NBA</option>
-            <option value="mlb">MLB</option><option value="nhl">NHL</option>
-          </select>
-          <input class="input" id="new-league-id" placeholder="ESPN League ID" />
-          <input class="input" id="new-year" placeholder="Season year" value="2026" />
-          <input class="input" id="new-label" placeholder="Friendly label (optional)" />
-          <button class="btn-primary" id="add-league-btn">Add</button>
-        </div>
-        <p class="help-text">The League ID is the number in your ESPN league's URL, e.g.
-          fantasy.espn.com/football/league?leagueId=<strong>1234567</strong>.</p>
-      </section>
-
-      <section class="settings-section">
-        <div class="section-title">Members (${state.config.members.length}/10)</div>
-        <div>${memberChips || `<span class="muted">No one has checked in yet.</span>`}</div>
-      </section>
-    </div>`;
-}
-
-function emptyStateHTML(title, body) {
-  return `<div class="empty-state"><div class="empty-title">${escapeHtml(title)}</div><div class="muted">${escapeHtml(body)}</div></div>`;
-}
-
-function bindMainEvents() {
-  document.getElementById("signout-btn")?.addEventListener("click", signOut);
-  root.querySelectorAll("[data-league]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      state.activeLeagueId = btn.dataset.league;
-      render();
-      if (!state.espnData[state.activeLeagueId]) refreshLeague(state.activeLeagueId);
-    });
-  });
-  root.querySelectorAll("[data-tab]").forEach((btn) => {
-    btn.addEventListener("click", () => { state.tab = btn.dataset.tab; render(); });
-  });
-  document.getElementById("refresh-btn")?.addEventListener("click", () => refreshLeague(state.activeLeagueId));
-  root.querySelectorAll("[data-team]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      state.selectedTeamId[state.activeLeagueId] = btn.dataset.team;
-      render();
-    });
-  });
-
-  // Settings bindings
-  document.getElementById("save-league-name")?.addEventListener("click", () => {
-    const val = document.getElementById("league-name-input").value;
-    updateConfig({ leagueName: val });
-  });
-  document.getElementById("add-league-btn")?.addEventListener("click", () => {
-    const sport = document.getElementById("new-sport").value;
-    const leagueId = document.getElementById("new-league-id").value.trim();
-    const year = document.getElementById("new-year").value.trim() || "2026";
-    const label = document.getElementById("new-label").value.trim() || `League ${leagueId}`;
-    if (!leagueId) return;
-    const entry = { id: `${sport}-${leagueId}-${Date.now()}`, sport, leagueId, year, label };
-    updateConfig({ leagues: [...state.config.leagues, entry] });
-  });
-  root.querySelectorAll("[data-remove-league]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      updateConfig({ leagues: state.config.leagues.filter((l) => l.id !== btn.dataset.removeLeague) });
-    });
-  });
-  root.querySelectorAll("[data-remove-member]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      updateConfig({ members: state.config.members.filter((m) => m !== btn.dataset.removeMember) });
-    });
-  });
-}
-
-function escapeHtml(str) {
-  return String(str ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-}
-function escapeAttr(str) { return escapeHtml(str); }
-
-init();
-</script>
+<noscript><div class="center-screen">This site needs JavaScript to load the league data.</div></noscript>
+<script type="module" src="app.js"></script>
 </body>
 </html>
