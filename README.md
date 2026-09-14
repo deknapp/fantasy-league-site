@@ -90,6 +90,7 @@ This repository is public. It must never contain manager names, league IDs, ESPN
 
 ## Status
 
-- The parsing follows ESPN's v3 league JSON as used by community clients. It hasn't yet been run against the real leagues, because ESPN's API refused requests from the development machine. The first step after deploying the Worker is to run `scripts/snapshot-league.mjs` through it for each league and check the printed structure: team count, owner names found, games played, and slot ids without a label.
-- It's still unknown whether the leagues are public or need `ESPN_S2`/`SWID`.
+- The parsing has been checked against three of the real leagues (September 2026): team counts, owner names, records, roster slots, and cross-league manager matching all come through.
+- ESPN's API lives at `lm-api-reads.fantasy.espn.com/apis/v3/`. The older `/apps/fantasy/v3/` path returns 403 to every request.
+- Public leagues need no cookies. A private league returns 401 (`AUTH_LEAGUE_NOT_VISIBLE`) until the Worker has `ESPN_S2` and `SWID` from an account in that league.
 - The original prototype's honor-system sign-in was replaced. Viewing is open to anyone, and changing settings requires the admin token. Before, any visitor could rewrite the league list.
