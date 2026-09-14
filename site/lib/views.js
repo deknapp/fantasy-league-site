@@ -1,5 +1,4 @@
 // HTML string builders. Pure functions of their arguments so they can be tested without a browser.
-import { SPORTS } from "./espn.js";
 import { formatPct, ordinal } from "./combine.js";
 
 export function escapeHtml(value) {
@@ -34,6 +33,7 @@ const injuryLabel = (s) => (s ? INJURY_LABELS[s] || s.replace(/_/g, " ").toLower
 
 // columns: [{ key, label, sport, status, started, weightShare }]
 export function combinedView({ result, columns, meKey }) {
+  const labelColumn = columns.find((c) => c.key === result.rows.find((r) => r.labelFrom)?.labelFrom);
   if (!result.rows.length) {
     return columns.some((c) => c.status === "loading")
       ? emptyState("Loading leagues…", "Pulling standings from ESPN.")
@@ -56,7 +56,8 @@ export function combinedView({ result, columns, meKey }) {
         <td class="num muted">${record(r)}</td>
       </tr>`;
   }).join("");
-  return `${combinedNote(columns)}
+  const labelNote = labelColumn ? `<p class="note">Managers are listed by their ${escapeHtml(labelColumn.label)} team name.</p>` : "";
+  return `${combinedNote(columns)}${labelNote}
     <div class="table-wrap"><table>
       <thead><tr><th>#</th><th>Manager</th>${head}<th class="num">Combined</th><th class="num">W-L-T</th></tr></thead>
       <tbody>${body}</tbody>
@@ -68,11 +69,13 @@ function combinedNote(columns) {
   const notes = [`Combined is the weighted average of each league's winning percentage (${weights}).`];
   const unstarted = columns.filter((c) => c.status === "ok" && !c.started);
   const failed = columns.filter((c) => c.status === "error");
+  const stale = columns.filter((c) => c.status === "stale");
   const loading = columns.filter((c) => c.status === "loading");
   if (unstarted.length) {
     notes.push(`${labelList(unstarted)} ${unstarted.length > 1 ? "haven't" : "hasn't"} started yet, so for now the other leagues share the weight.`);
   }
   if (failed.length) notes.push(`${labelList(failed)} failed to load and ${failed.length > 1 ? "are" : "is"} left out.`);
+  if (stale.length) notes.push(`${labelList(stale)} couldn't be refreshed from ESPN, so older numbers are shown.`);
   if (loading.length) notes.push(`Still loading: ${labelList(loading)}.`);
   notes.push("Roto leagues count finish position (1st = 1.000, last = .000). Click a name to highlight yourself.");
   return `<p class="note">${notes.join(" ")}</p>`;
@@ -140,75 +143,14 @@ export function tradesView(league) {
     </div>`).join("");
 }
 
-// managers: [{ key, label, present }] from the combined table; labels: raw manager key -> display name.
-export function settingsView({ config, demo, workerUrl, hasToken, message, managers, loadedLeagues, labels }) {
-  const source = demo
-    ? `Showing <strong>demo data</strong> with made-up managers. Set <code>WORKER_URL</code> in <code>site/config.js</code>, or open the site once with <code>?worker=https://…</code>, to use real ESPN leagues.`
-    : `Data comes from <code>${escapeHtml(workerUrl)}</code>. Saving changes needs the Worker's admin token (below).`;
-
-  const leagueRows = config.leagues.map((l) => `
-    <div class="league-row">
-      <span>${escapeHtml(l.label)} <span class="muted small">${escapeHtml(SPORTS[l.sport]?.label || l.sport)} · league ${escapeHtml(l.leagueId)} · ${escapeHtml(l.year)}</span></span>
-      <button class="btn-ghost" data-action="remove-league" data-id="${escapeHtml(l.id)}">Remove</button>
-    </div>`).join("");
-
-  const unlinked = managers.filter((m) => m.present < loadedLeagues);
-  const linkRows = unlinked.map((m) => `
-    <div class="league-row">
-      <span>${escapeHtml(m.label)} <span class="muted small">in ${m.present} of ${loadedLeagues} leagues</span></span>
-      <select class="input compact" data-change="link" data-from="${escapeHtml(m.key)}" aria-label="Link ${escapeHtml(m.label)} to another manager">
-        <option value="">Same person as…</option>
-        ${managers.filter((o) => o.key !== m.key).map((o) => `<option value="${escapeHtml(o.key)}">${escapeHtml(o.label)}</option>`).join("")}
-      </select>
-    </div>`).join("");
-  const aliasRows = Object.entries(config.aliases || {}).map(([from, to]) => `
-    <div class="league-row">
-      <span>${escapeHtml(labels[from] || from)} → ${escapeHtml(labels[to] || to)}</span>
-      <button class="btn-ghost" data-action="unlink" data-from="${escapeHtml(from)}">Unlink</button>
-    </div>`).join("");
-
-  const tokenSection = demo ? "" : `
-    <section class="settings-section">
-      <div class="section-title">Admin token</div>
-      <div class="row">
-        <input class="input" type="password" id="token-input" data-enter="save-token" autocomplete="off"
-          placeholder="${hasToken ? "Saved in this browser" : "The Worker's ADMIN_TOKEN"}" />
-        <button class="btn-primary" data-action="save-token">Save</button>
-      </div>
-      <p class="help-text">Stored only in this browser. Anyone can view the site; only people with the token can change settings.</p>
-    </section>`;
-
-  return `<div class="settings">
-    ${message ? `<div class="message ${escapeHtml(message.kind)}">${escapeHtml(message.text)}</div>` : ""}
-    <div class="info-banner">${source}</div>
-
-    <section class="settings-section">
-      <div class="section-title">League office name</div>
-      <div class="row">
-        <input class="input" id="league-name-input" data-enter="save-name" value="${escapeHtml(config.leagueName)}" />
-        <button class="btn-primary" data-action="save-name">Save</button>
-      </div>
-    </section>
-
-    <section class="settings-section">
-      <div class="section-title">ESPN leagues</div>
-      <div>${leagueRows || `<span class="muted">No leagues added yet.</span>`}</div>
-      <div class="add-league-grid">
-        <input class="input" id="new-league-url" data-enter="add-league" placeholder="Paste an ESPN league URL" />
-        <input class="input" id="new-league-label" data-enter="add-league" placeholder="Label (optional)" />
-        <button class="btn-primary" data-action="add-league">Add</button>
-      </div>
-      <p class="help-text">Any fantasy.espn.com league, team, or standings page works, e.g.
-        fantasy.espn.com/football/league?leagueId=<strong>1234567</strong>. Without a seasonId the current season is assumed.
-        Private leagues need the Worker's ESPN_S2 and SWID secrets.</p>
-    </section>
-
-    <section class="settings-section">
-      <div class="section-title">Manager links</div>
-      <p class="help-text">The combined table matches managers by ESPN account. If someone uses a different account in one league, link the two here.</p>
-      ${linkRows}${aliasRows}
-      ${linkRows || aliasRows ? "" : `<span class="muted">Everyone is matched across all loaded leagues.</span>`}
-    </section>
-    ${tokenSection}
-  </div>`;
+export function timeAgo(iso, now = new Date()) {
+  if (!iso) return "";
+  const minutes = Math.round((now - new Date(iso)) / 60000);
+  if (!Number.isFinite(minutes)) return "";
+  if (minutes < 1) return "just now";
+  if (minutes < 60) return `${minutes} min ago`;
+  const hours = Math.round(minutes / 60);
+  if (hours < 24) return `${hours} hr ago`;
+  const days = Math.round(hours / 24);
+  return `${days} day${days === 1 ? "" : "s"} ago`;
 }

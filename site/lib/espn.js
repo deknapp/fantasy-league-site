@@ -1,5 +1,5 @@
 // Pure helpers for ESPN Fantasy API (v3) league JSON.
-// No DOM and no network: shared by the site, the Worker, and the tests.
+// No DOM and no network: shared by the site, the data build script, and the tests.
 
 export const SPORTS = {
   mlb: { code: "flb", path: "baseball", label: "Baseball" },
