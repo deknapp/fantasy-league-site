@@ -12,7 +12,7 @@
 //   ADMIN_TOKEN    required to save settings
 //   ESPN_S2, SWID  ESPN cookies, only needed for private leagues
 //   ALLOWED_ORIGIN comma-separated origins allowed by CORS (default "*")
-import { ESPN_API_HOST, SPORTS, leagueApiUrl } from "../../site/lib/espn.js";
+import { ESPN_API_HOST, ESPN_API_PATH, SPORTS, leagueApiUrl } from "../../site/lib/espn.js";
 import { DEFAULT_CONFIG, httpError, validateConfig } from "./config.js";
 
 const CACHE_SECONDS = 300;
@@ -65,7 +65,7 @@ function checkProxyTarget(raw) {
   } catch {
     throw httpError(400, "Missing or invalid url parameter");
   }
-  if (target.protocol !== "https:" || !PROXY_HOSTS.has(target.hostname) || !target.pathname.startsWith("/apps/fantasy/v3/")) {
+  if (target.protocol !== "https:" || !PROXY_HOSTS.has(target.hostname) || !target.pathname.startsWith(`${ESPN_API_PATH}/`)) {
     throw httpError(400, "Only ESPN fantasy API URLs can be proxied");
   }
   return target.toString();

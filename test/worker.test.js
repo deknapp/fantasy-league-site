@@ -43,7 +43,7 @@ test("/api/league fetches the matching ESPN URL", async () => {
     assert.equal(res.status, 200);
     assert.deepEqual(await res.json(), { teams: [] });
     assert.equal(res.headers.get("Access-Control-Allow-Origin"), "*");
-    assert.match(calls[0].url, /^https:\/\/lm-api-reads\.fantasy\.espn\.com\/apps\/fantasy\/v3\/games\/fhl\/seasons\/2027\/segments\/0\/leagues\/42\?view=/);
+    assert.match(calls[0].url, /^https:\/\/lm-api-reads\.fantasy\.espn\.com\/apis\/v3\/games\/fhl\/seasons\/2027\/segments\/0\/leagues\/42\?view=/);
     assert.equal(calls[0].init.headers.Cookie, undefined);
   });
 });
@@ -79,14 +79,14 @@ test("/api/league rejects bad parameters without calling ESPN", async () => {
 test("/proxy only forwards ESPN fantasy API URLs", async () => {
   await withUpstream(() => new Response("{}"), async (calls) => {
     const bad = [
-      "https://example.com/apps/fantasy/v3/x",
-      "http://lm-api-reads.fantasy.espn.com/apps/fantasy/v3/x",
+      "https://example.com/apis/v3/x",
+      "http://lm-api-reads.fantasy.espn.com/apis/v3/x",
       "https://lm-api-reads.fantasy.espn.com/other",
       "not-a-url",
     ];
     for (const url of bad) assert.equal((await call(`/proxy?url=${encodeURIComponent(url)}`)).status, 400, url);
     assert.equal(calls.length, 0);
-    const ok = await call(`/proxy?url=${encodeURIComponent("https://lm-api-reads.fantasy.espn.com/apps/fantasy/v3/games/ffl/seasons/2026")}`);
+    const ok = await call(`/proxy?url=${encodeURIComponent("https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/2026")}`);
     assert.equal(ok.status, 200);
     assert.equal(calls.length, 1);
   });

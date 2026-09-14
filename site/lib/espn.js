@@ -9,6 +9,8 @@ export const SPORTS = {
 };
 
 export const ESPN_API_HOST = "lm-api-reads.fantasy.espn.com";
+// The older /apps/fantasy/v3 path now answers 403 to every request.
+export const ESPN_API_PATH = "/apis/v3";
 export const LEAGUE_VIEWS = ["mSettings", "mTeam", "mStandings", "mRoster", "mTransactions2"];
 
 // lineupSlotId -> label, per sport.
@@ -34,7 +36,7 @@ export function leagueApiUrl(sport, year, leagueId, views = LEAGUE_VIEWS) {
   if (!/^\d{1,12}$/.test(String(leagueId))) throw new Error("League ID must be numeric");
   if (!/^\d{4}$/.test(String(year))) throw new Error("Season must be a 4-digit year");
   const query = views.map((v) => `view=${v}`).join("&");
-  return `https://${ESPN_API_HOST}/apps/fantasy/v3/games/${s.code}/seasons/${year}/segments/0/leagues/${leagueId}?${query}`;
+  return `https://${ESPN_API_HOST}${ESPN_API_PATH}/games/${s.code}/seasons/${year}/segments/0/leagues/${leagueId}?${query}`;
 }
 
 const PATH_TO_SPORT = Object.fromEntries(Object.entries(SPORTS).map(([key, s]) => [s.path, key]));

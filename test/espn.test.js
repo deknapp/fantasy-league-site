@@ -33,7 +33,7 @@ test("defaultSeason follows ESPN's season naming", () => {
 test("leagueApiUrl builds the v3 URL and validates input", () => {
   assert.equal(
     leagueApiUrl("mlb", "2026", "123", ["mTeam", "mStandings"]),
-    "https://lm-api-reads.fantasy.espn.com/apps/fantasy/v3/games/flb/seasons/2026/segments/0/leagues/123?view=mTeam&view=mStandings",
+    "https://lm-api-reads.fantasy.espn.com/apis/v3/games/flb/seasons/2026/segments/0/leagues/123?view=mTeam&view=mStandings",
   );
   assert.throws(() => leagueApiUrl("golf", "2026", "1"), /Unknown sport/);
   assert.throws(() => leagueApiUrl("nfl", "26", "1"), /4-digit/);
