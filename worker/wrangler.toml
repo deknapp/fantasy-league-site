@@ -1,0 +1,17 @@
+name = "espn-proxy"
+main = "src/index.js"
+compatibility_date = "2025-06-01"
+
+# Create with `npx wrangler kv namespace create LEAGUE_CONFIG` and paste the id here.
+[[kv_namespaces]]
+binding = "LEAGUE_CONFIG"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+[vars]
+# Lock this down to your site's origin once it's hosted, e.g. "https://example.pages.dev".
+ALLOWED_ORIGIN = "*"
+
+# Secrets (never put these in this file):
+#   npx wrangler secret put ADMIN_TOKEN   # required to save settings
+#   npx wrangler secret put ESPN_S2       # private leagues only
+#   npx wrangler secret put SWID          # private leagues only
