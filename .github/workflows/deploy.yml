@@ -1,0 +1,55 @@
+name: deploy
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Fetch league data from ESPN
+        env:
+          LEAGUES_CONFIG: ${{ secrets.LEAGUES_CONFIG }}
+          ESPN_S2: ${{ secrets.ESPN_S2 }}
+          SWID: ${{ secrets.SWID }}
+          PREVIOUS_DATA_URL: ${{ steps.pages.outputs.base_url }}/data/leagues.json
+        run: node scripts/build-data.mjs
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      # GitHub pauses scheduled workflows after 60 days without repository activity; re-enabling keeps this one running.
+      - name: Keep the schedule alive
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow enable deploy.yml --repo "$GITHUB_REPOSITORY"
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
