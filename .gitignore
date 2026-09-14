@@ -1,0 +1,10 @@
+# Never commit real league data or credentials.
+node_modules/
+.wrangler/
+.dev.vars
+.env
+*.local.json
+data/
+fixtures/real/
+*.har
+.DS_Store
