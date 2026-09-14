@@ -1,11 +1,36 @@
 {
   "leagueName": "The Franchise",
   "leagues": [
-    { "id": "mlb-1111111-2026", "sport": "mlb", "leagueId": "1111111", "year": "2026", "label": "Baseball" },
-    { "id": "nhl-2222222-2027", "sport": "nhl", "leagueId": "2222222", "year": "2027", "label": "Hockey" },
-    { "id": "nba-3333333-2027", "sport": "nba", "leagueId": "3333333", "year": "2027", "label": "Basketball" },
-    { "id": "nfl-4444444-2026", "sport": "nfl", "leagueId": "4444444", "year": "2026", "label": "Football" }
+    {
+      "sport": "mlb",
+      "leagueId": "1111111",
+      "year": "2026",
+      "label": "Baseball"
+    },
+    {
+      "sport": "nhl",
+      "leagueId": "2222222",
+      "year": "2027",
+      "label": "Hockey"
+    },
+    {
+      "sport": "nba",
+      "leagueId": "3333333",
+      "year": "2027",
+      "label": "Basketball"
+    },
+    {
+      "sport": "nfl",
+      "leagueId": "4444444",
+      "year": "2026",
+      "label": "Football"
+    }
   ],
   "aliases": {},
-  "weights": { "mlb": 0.25, "nhl": 0.25, "nba": 0.25, "nfl": 0.25 }
+  "weights": {
+    "mlb": 0.25,
+    "nhl": 0.25,
+    "nba": 0.25,
+    "nfl": 0.25
+  }
 }
