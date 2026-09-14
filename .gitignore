@@ -8,3 +8,4 @@ data/
 fixtures/real/
 *.har
 .DS_Store
+.private-patterns

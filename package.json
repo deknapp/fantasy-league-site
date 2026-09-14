@@ -1,0 +1,13 @@
+{
+  "name": "fantasy-league-site",
+  "private": true,
+  "type": "module",
+  "description": "Multi-sport ESPN fantasy league office with combined standings",
+  "scripts": {
+    "test": "node --test",
+    "demo-data": "node scripts/make-demo-data.mjs",
+    "check-private": "node scripts/check-private.mjs",
+    "serve": "python3 -m http.server 8787 -d site"
+  },
+  "license": "MIT"
+}
