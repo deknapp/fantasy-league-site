@@ -23,11 +23,19 @@ export function combineStandings(inputs, { weights = DEFAULT_WEIGHTS, aliases = 
       const key = managerKey(team, leagueKey, aliases);
       let m = managers.get(key);
       if (!m) {
-        m = { key, label: null, byLeague: {}, wins: 0, losses: 0, ties: 0 };
+        m = { key, label: null, labelFrom: null, byLeague: {}, wins: 0, losses: 0, ties: 0 };
         managers.set(key, m);
       }
       // Prefer the name on the account the others are linked to.
-      if (team.ownerName && (!m.label || team.ownerId === key)) m.label = team.ownerName;
+      if (team.ownerName && (!m.label || team.ownerId === key)) {
+        m.label = team.ownerName;
+        m.labelFrom = null;
+      }
+      // Without manager names, a manager is listed by their team name in the first league.
+      if (!m.label) {
+        m.label = team.name;
+        m.labelFrom = leagueKey;
+      }
       m.byLeague[leagueKey] = {
         sport,
         teamName: team.name,
